@@ -1,0 +1,25 @@
+---
+
+app_user: 'saimon'
+app_user_home: '/home/{{ app_user }}'
+app_name: 'djangotest'
+
+project_url: '192.168.33.10'
+project_dir: '{{ app_user_home }}/{{ app_name }}'
+
+log_dir: '/var/log/{{ app_name }}'
+
+python_version: '2'
+
+db_engine: 'postgresql_psycopg2' # or 'mysql'
+
+virtualenv_path: '{{ app_user_home }}/env'
+
+db_user: django
+db_user_password: 123456
+db_name: dbtest
+
+db_root_user: root
+db_root_password:
+
+uwsgi_port: 8000

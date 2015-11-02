@@ -1,0 +1,23 @@
+---
+- name: create MySQL user
+  mysql_user: >
+    name={{ db_user }}
+    host=%
+    password={{ db_user_password }}
+    priv={{ db_name }}.*:ALL
+    login_user={{ db_root_user }}
+    login_password={{ db_root_password }}
+    state=present
+  notify:
+    - restart mysql
+
+- name: create MySQL database
+  mysql_db: >
+    name={{ db_name }}
+    collation=utf8_general_ci
+    encoding=utf8
+    login_user={{ db_root_user }}
+    login_password={{ db_root_password }}
+    state=present
+  notify:
+    - restart mysql

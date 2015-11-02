@@ -1,0 +1,28 @@
+---
+- name: install system packages
+  apt: name={{ item }} state=installed update_cache=yes
+  with_items: '{{ system_packages }}'
+
+- name: create the application user
+  user: name={{ app_user }} home={{ app_user_home }} createhome=yes
+
+- name: create the virtualenv
+  sudo_user: '{{ app_user }}'
+  command: virtualenv {{ virtualenv_path }} -p /usr/bin/python
+           creates={{ virtualenv_path }}/bin/activate
+  when: python_version == '2'
+
+- name: create the virtualenv
+  sudo_user: '{{ app_user }}'
+  command: virtualenv {{ virtualenv_path }} -p /usr/bin/python3
+           creates={{ virtualenv_path }}/bin/activate
+  when: python_version == '3'
+
+- name: install pip-packages
+  sudo_user: '{{ app_user }}'
+  pip: name={{ item }} virtualenv={{ virtualenv_path }}
+  with_items: '{{ pip_packages }}'
+
+- name: virtualenv activate
+  sudo_user: '{{ app_user }}'
+  template: src=venv_exec.j2 dest={{ virtualenv_path }}/exec mode=755

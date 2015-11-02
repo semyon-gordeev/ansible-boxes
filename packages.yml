@@ -1,0 +1,25 @@
+---
+
+system_packages:
+  - build-essential
+  - python-dev
+  - python3-dev
+  - python-setuptools
+  - git
+  - nginx
+  - supervisor
+  - tree
+  - python-pip
+  - python-virtualenv
+  - mysql-server
+  - mysql-client
+  - libmysqlclient-dev
+  - python-mysqldb
+  - uwsgi
+  - uwsgi-plugin-python
+
+pip_packages:
+  - django
+  - pillow
+  - requests
+  - MySQL-python

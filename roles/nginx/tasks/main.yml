@@ -1,0 +1,17 @@
+---
+- name: create media directory
+  sudo_user: '{{ app_user }}'
+  file: path={{ project_dir }}/media state=directory owner={{ app_user }}
+
+- name: create static directory
+  sudo_user: '{{ app_user }}'
+  file: path={{ project_dir }}/static state=directory owner={{ app_user }}
+
+- name: create log directory
+  file: path={{ log_dir }} state=directory owner={{ app_user }}
+
+- name: copy nginx config
+  template: src=nginx.j2 dest=/etc/nginx/sites-available/{{ project_url }}
+
+- name: create symlink nginx config
+  file: src=/etc/nginx/sites-available/{{ project_url }} dest=/etc/nginx/sites-enabled/{{ project_url }} state=link

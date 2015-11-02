@@ -1,0 +1,12 @@
+[uwsgi]
+chdir = {{ project_dir }}
+env = DJANGO_SETTINGS_MODULE={{ app_name }}.settings
+socket = /tmp/django.sock
+module = {{ app_name }}.wsgi:application
+master = True
+pidfile = {{ app_name }}.pid
+home = {{ virtualenv_path }}
+vacuum = True
+plugins = python27
+daemonize={{ log_dir }}/uwsgi.log
+

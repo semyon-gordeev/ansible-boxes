@@ -1,0 +1,10 @@
+---
+- hosts: django
+  sudo: yes
+  vars_files:
+    - vars.yml
+    - packages.yml
+  roles:
+    - base
+    - django
+    - nginx
