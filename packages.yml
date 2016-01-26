@@ -17,9 +17,13 @@ system_packages:
   - python-mysqldb
   - uwsgi
   - uwsgi-plugin-python
+  - libpq-dev
+  - supervisor
 
 pip_packages:
   - django
-  - pillow
+  - setuptools
   - requests
   - MySQL-python
+  - psycopg2
+  - uwsgi

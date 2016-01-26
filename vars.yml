@@ -1,6 +1,6 @@
 ---
 
-app_user: 'saimon'
+app_user: 'vagrant'
 app_user_home: '/home/{{ app_user }}'
 app_name: 'djangotest'
 
@@ -11,12 +11,12 @@ log_dir: '/var/log/{{ app_name }}'
 
 python_version: '2'
 
-db_engine: 'postgresql_psycopg2' # or 'mysql'
+db_engine: 'mysql' # 'postgresql_psycopg2'
 
 virtualenv_path: '{{ app_user_home }}/env'
 
 db_user: django
-db_user_password: 123456
+db_user_password: django
 db_name: dbtest
 
 db_root_user: root

@@ -14,14 +14,12 @@
   sudo_user: '{{ app_user }}'
   template: src=settings.j2 dest={{ project_dir }}/{{ app_name }}/settings.py
 
-- name: syncdb 
-  sudo_user: '{{ app_user }}'
-  django_manage: command=syncdb virtualenv={{ virtualenv_path }} app_path={{ project_dir }}
-
 - name: migrate database
   sudo_user: '{{ app_user }}'
   django_manage: command=migrate virtualenv={{ virtualenv_path }} app_path={{ project_dir }}
 
-- name: start uwsgi
-  sudo_user: '{{ app_user }}'
-  command: uwsgi --ini {{ project_dir }}/uwsgi_{{ app_name }}.ini
+- name: supervisor config
+  sudo_user: 'root'
+  template: src=supervisor.j2 dest=/etc/supervisor/conf.d/{{ app_name }}.conf
+  notify:
+    - restart supervisor
