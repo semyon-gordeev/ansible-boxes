@@ -1,0 +1,10 @@
+---
+- hosts: flask
+  sudo: yes
+  vars_files:
+    - settings/flask/vars.yml
+    - settings/flask/packages.yml
+  roles:
+    - base
+    - flask
+    - nginx

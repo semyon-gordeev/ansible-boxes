@@ -6,10 +6,6 @@
     chdir: '{{ app_user_home }}'
     creates: '{{ app_user_home }}/{{ app_name }}'
 
-- name: copy uwsg file
-  sudo_user: '{{ app_user }}'
-  template: src=uwsgi.j2 dest={{ project_dir }}/uwsgi_{{ app_name }}.ini owner={{ app_user }}
-
 - name: copy settings.py
   sudo_user: '{{ app_user }}'
   template: src=settings.j2 dest={{ project_dir }}/{{ app_name }}/settings.py

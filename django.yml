@@ -2,8 +2,8 @@
 - hosts: django
   sudo: yes
   vars_files:
-    - vars.yml
-    - packages.yml
+    - settings/django/vars.yml
+    - settings/django/packages.yml
   roles:
     - base
     - django
