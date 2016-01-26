@@ -3,7 +3,6 @@
 system_packages:
   - build-essential
   - python-dev
-  - python3-dev
   - python-setuptools
   - git
   - nginx
@@ -15,15 +14,12 @@ system_packages:
   - mysql-client
   - libmysqlclient-dev
   - python-mysqldb
-  - uwsgi
-  - uwsgi-plugin-python
   - libpq-dev
   - supervisor
 
 pip_packages:
-  - django
   - setuptools
   - requests
   - MySQL-python
-  - psycopg2
-  - uwsgi
+  - SQLAlchemy
+  - Flask

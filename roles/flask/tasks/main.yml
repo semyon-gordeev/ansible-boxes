@@ -1,0 +1,15 @@
+---
+- name: create run.py
+  sudo_user: '{{ app_user }}'
+  template: src=run.j2 dest={{ project_dir }}/run.py
+
+- name: create folder for migrations
+  file: path={{ project_dir }}/db_repository, state=directory
+
+- name: create config file
+  sudo_user: '{{ app_user }}'
+  template: src=config.j2 dest={{ project_dir }}/config.py
+
+- name: create app module
+  sudo_user: '{{ app_user }}'
+  template: src=app.j2 dest={{ project_dir }}/app/__init__.py

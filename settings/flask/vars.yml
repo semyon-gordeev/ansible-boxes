@@ -2,24 +2,22 @@
 
 app_user: 'vagrant'
 app_user_home: '/home/{{ app_user }}'
-app_name: 'djangotest'
+app_name: 'flasktest'
 
-project_url: '192.168.33.10'
+project_url: '192.168.33.11'
 project_dir: '{{ app_user_home }}/{{ app_name }}'
 
 log_dir: '/var/log/{{ app_name }}'
 
 python_version: '2'
 
-db_engine: 'mysql' # 'postgresql_psycopg2'
+db_engine: 'mysql'
 
 virtualenv_path: '{{ app_user_home }}/env'
 
-db_user: django
-db_user_password: django
-db_name: dbtest
+db_user: flask
+db_user_password: flask
+db_name: flask
 
 db_root_user: root
 db_root_password:
-
-uwsgi_port: 8000
