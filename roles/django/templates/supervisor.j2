@@ -1,6 +1,6 @@
 [program:{{ app_name }}]
-command={{ virtualenv_path }}/bin/uwsgi --wsgi-file {{ project_dir }}/{{ app_name }}/wsgi.py --http-socket 127.0.0.1:8888 --virtualenv {{ virtualenv_path }}
-autostart=true --chdir {{ project_dir }}
+command={{ virtualenv_path }}/bin/uwsgi --wsgi-file {{ project_dir }}/{{ app_name }}/wsgi.py --http-socket 127.0.0.1:8888 --virtualenv {{ virtualenv_path }} --chdir {{ project_dir }}
+autostart=true
 autorestart=true
 stderr_logfile={{ log_dir }}/supervisor.err.log
 stdout_logfile={{ log_dir }}/supervisor.out.log

@@ -6,4 +6,4 @@
   when: db_engine == 'mysql'
 
 - include: postgresql.yml
-  when: db_engine == 'postgresql_psycopg2'
+  when: db_engine.stdout.find('postgresql')
