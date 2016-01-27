@@ -1,3 +1,9 @@
 ---
 - name: start supervisor
   service: name=supervisor state=started enabled=yes
+
+- name: restart supervisor
+  service: name=supervisor state=restarted enabled=yes
+
+- name: restart nginx
+  service: name=nginx state=restarted enabled=yes
