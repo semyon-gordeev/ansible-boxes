@@ -1,0 +1,7 @@
+[uwsgi]
+vhost = true
+http-socket = 127.0.0.1:{{ port }}
+venv = /home/vagrant/env
+chdir = /home/vagrant/flasktest
+module = app
+callable = app

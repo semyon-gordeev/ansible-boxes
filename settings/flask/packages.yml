@@ -21,5 +21,8 @@ pip_packages:
   - setuptools
   - requests
   - MySQL-python
+  - psycopg2  
+  - uwsgi
   - SQLAlchemy
   - Flask
+  - flask_sqlalchemy

@@ -18,4 +18,4 @@
   sudo_user: 'root'
   template: src=supervisor.j2 dest=/etc/supervisor/conf.d/{{ app_name }}.conf
   notify:
-    - restart supervisor
+    - start supervisor

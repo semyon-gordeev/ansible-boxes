@@ -21,3 +21,7 @@ db_name: flask
 
 db_root_user: root
 db_root_password:
+
+port: 5000
+
+static: false 

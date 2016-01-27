@@ -1,15 +1,34 @@
 ---
-- name: create run.py
+- name: create project directory
+  file: path={{ project_dir }} state=directory mode=755
   sudo_user: '{{ app_user }}'
-  template: src=run.j2 dest={{ project_dir }}/run.py
+
+- name: create uwsgi.ini
+  sudo_user: '{{ app_user }}'
+  template: src=uwsgi.j2 dest={{ project_dir }}/uwsgi.ini
 
 - name: create folder for migrations
-  file: path={{ project_dir }}/db_repository, state=directory
+  file: path={{ project_dir }}/db_repository state=directory mode=755
+  sudo_user: '{{ app_user }}'
 
 - name: create config file
   sudo_user: '{{ app_user }}'
   template: src=config.j2 dest={{ project_dir }}/config.py
 
+- name: create app module directory
+  file: path={{ project_dir }}/app state=directory mode=755
+  sudo_user: '{{ app_user }}'
+
 - name: create app module
   sudo_user: '{{ app_user }}'
   template: src=app.j2 dest={{ project_dir }}/app/__init__.py
+
+- name: create log directory
+  file: path={{ log_dir }} state=directory
+  sudo_user: 'root'
+
+- name: supervisor config
+  sudo_user: 'root'
+  template: src=supervisor.j2 dest=/etc/supervisor/conf.d/{{ app_name }}.conf
+  notify:
+    - start supervisor
