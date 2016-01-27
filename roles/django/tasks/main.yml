@@ -19,3 +19,9 @@
   template: src=supervisor.j2 dest=/etc/supervisor/conf.d/{{ app_name }}.conf
   notify:
     - start supervisor
+
+- name: restart all
+  shell: echo
+  notify:
+    - restart supervisor
+    - restart nginx

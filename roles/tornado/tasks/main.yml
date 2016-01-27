@@ -18,6 +18,7 @@
     - start supervisor
 
 - name: restart all
+  shell: echo
   notify:
     - restart supervisor
     - restart nginx
