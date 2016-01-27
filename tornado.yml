@@ -1,0 +1,11 @@
+---
+- hosts: tornado
+  sudo: yes
+  vars_files:
+    - settings/tornado/vars.yml
+    - settings/tornado/packages.yml
+  roles:
+    - base
+    - tornado
+    - nginx
+

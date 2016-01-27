@@ -1,0 +1,27 @@
+---
+
+app_user: 'vagrant'
+app_user_home: '/home/{{ app_user }}'
+app_name: 'tornadotest'
+
+project_url: '192.168.33.12'
+project_dir: '{{ app_user_home }}/{{ app_name }}'
+
+log_dir: '/var/log/{{ app_name }}'
+
+python_version: '2'
+
+db_engine: 'mysql' # 'postgresql+psycopg2'
+
+virtualenv_path: '{{ app_user_home }}/env'
+
+db_user: tornado
+db_user_password: tornado
+db_name: tornado
+
+db_root_user: root
+db_root_password:
+
+port: 8888
+
+static: false 

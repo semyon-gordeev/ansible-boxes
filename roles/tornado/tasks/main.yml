@@ -1,0 +1,18 @@
+---
+- name: create project directory
+  file: path={{ project_dir }} state=directory mode=755
+  sudo_user: '{{ app_user }}'
+
+- name: create app file
+  sudo_user: '{{ app_user }}'
+  template: src=app.j2 dest={{ project_dir }}/app.py
+
+- name: create log directory
+  file: path={{ log_dir }} state=directory
+  sudo_user: 'root'
+
+- name: supervisor config
+  sudo_user: 'root'
+  template: src=supervisor.j2 dest=/etc/supervisor/conf.d/{{ app_name }}.conf
+  notify:
+    - start supervisor

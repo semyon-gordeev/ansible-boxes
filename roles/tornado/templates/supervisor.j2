@@ -1,0 +1,9 @@
+[program:{{ app_name }}]
+command={{ virtualenv_path }}/bin/python {{ project_dir }}/app.py --chdir {{ project_dir }}
+autostart=true
+autorestart=true
+stderr_logfile={{ log_dir }}/supervisor.err.log
+stdout_logfile={{ log_dir }}/supervisor.out.log
+redirect_stderr=true
+stopwaitsecs=60
+stopsignal=INT

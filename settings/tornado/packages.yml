@@ -1,0 +1,26 @@
+---
+
+system_packages:
+  - build-essential
+  - python-dev
+  - python-setuptools
+  - git
+  - nginx
+  - supervisor
+  - tree
+  - python-pip
+  - python-virtualenv
+  - mysql-server
+  - mysql-client
+  - libmysqlclient-dev
+  - python-mysqldb
+  - libpq-dev
+  - supervisor
+
+pip_packages:
+  - setuptools
+  - requests
+  - MySQL-python
+  - psycopg2  
+  - uwsgi
+  - tornado
